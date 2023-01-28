@@ -1,8 +1,8 @@
 # Kotlin Fundamentals
 
-A repository to practice the fundamentals of Kotlin and Spring.
+A repository to practice the fundamentals of Kotlin through certificate courses and course/toy problems.
 
-## BUsage
+## Usage
 
 Run `kotlinc [insert file name].kt -include-runtime -d [insert filename].jar` and then run `java -jar [insert filename].jar` to execute the program
 
