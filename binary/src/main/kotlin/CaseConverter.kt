@@ -1,8 +1,10 @@
-// this class contains the functions required to complete the following:
-// - take in a binary string and check whether its format is correct
-// - account for unsigned decimal integers of reasonable varying size
-// - convert the binary string to a hexadecimal string
-// - rudimentary error handling
+/*
+  this class contains the functions required to complete the following:
+  - request the user choose lower or uppercase conversion
+  - take in a string of any capitalization(s), string only contains alphabetical characters, else program ignores it
+  - convert the string's characters to the upper or lower case
+  - provide rudimentary error handling
+*/
 
 class CaseConverter(private val inputHandler: UserInputHandler) {
 
