@@ -6,10 +6,10 @@
   - provide rudimentary error handling
 */
 
-class CaseConverter(private val inputHandler: UserInputHandler) {
+class CaseConverter() {
 
   // decides upon lower case or upper case transform
-  fun convert(): String {
+  fun start(): String {
     val functionOne = "toLowerCase"
     val functionTwo = "toUpperCase"
 
@@ -20,6 +20,7 @@ class CaseConverter(private val inputHandler: UserInputHandler) {
       "3" to "Exit"
     )
 
+    val inputHandler = UserInputHandler()
     // use the predefined choices to form request string for user input
     val choices = choiceMap.keys
     inputHandler.setChoices(choices)
@@ -34,7 +35,7 @@ class CaseConverter(private val inputHandler: UserInputHandler) {
     val func: () -> Unit = { println("Executing " + choiceMap[userChoice] + "...") }
 
     // execute the user's chosen function
-    return when (userChoice) {
+    var result: String = when (userChoice) {
       "1" -> {
         func()
         val string = inputHandler.getUserStringInput("Enter a string to decapitalize: ")
@@ -49,15 +50,43 @@ class CaseConverter(private val inputHandler: UserInputHandler) {
 
       else -> "You chose to exit the program."
     }
+
+    return result
   }
 
-  // converts string characters to lower case form
+  /*
+    converts string characters to lower case form using the following:
+    - the 0b1011111 constant
+    - the "OR" bitwise operator
+  */
   private fun toLowerCase(string: String): String {
-    return string
+    return string.map { char ->
+      // check to see if character is alphabetic and upper case
+      if (char in 'A' .. 'Z') {
+        // use bitwise operation on the binary (base2) value of the character
+        (char.code or 0b100000).toChar()
+      } else {
+        // else, just return lower case character, or non-alphabetic character
+        char
+      }
+    }.joinToString("") // collapse characters into string
   }
 
-  // converts string characters to upper case form
+  /*
+    converts string characters to upper case form using the following:
+    - the 0b100000 constant
+    - the "XOR" bitwise operator
+  */
   private fun toUpperCase(string: String): String {
-    return string
+    return string.map { char ->
+      // check to see if character is alphabetic and lower case
+      if (char in 'a' .. 'z') {
+        // use bitwise operation on the binary (base2) value of the character
+        (char.code xor 0b100000).toChar()
+      } else {
+        // else, just return upper case character, or non-alphabetic character
+        char
+      }
+    }.joinToString("") // collapse characters into string
   }
 }

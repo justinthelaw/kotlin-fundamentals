@@ -11,7 +11,7 @@
 
 
 fun main(args: Array<String>) {
-  println("\nHello! Welcome to the Binary Representation Function Library.\n")
+  println("\nHello! Welcome to Justin's Binary Representation Function Library.\n")
   /*
     1.	A program to implement the toUpper and toLower.
     To implement these functions, you must use the bitwise AND (&) and OR (|) operators.
@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
 
     see ./CaseConverter.kt
   */
-  val functionOne = "toUpperCase and toLowerCase Converter"
+  val functionOne = "toLowerCase and toUpperCase Converter"
   /*
     2.	Write a program to take a string representing a binary number,
     and write out the number in hex.
@@ -53,15 +53,13 @@ fun main(args: Array<String>) {
   when (userChoice) {
     "1" -> {
       func()
-      val converter = CaseConverter(UserInputHandler())
-      val result = converter.convert()
+      val result = CaseConverter().start()
       println("Result: $result")
     }
 
     "2" -> {
       func()
-      val converter = BinaryToHexConverter(UserInputHandler())
-      val result = converter.convert()
+      val result = BinaryToHexConverter().start()
       println("Result: $result")
     }
 

@@ -6,9 +6,9 @@
   - provide rudimentary error handling
 */
 
-class BinaryToHexConverter(private val inputHandler: UserInputHandler) {
-  fun convert(): String {
-    val binaryString = inputHandler.getUserStringInput("Enter a binary string: ")
+class BinaryToHexConverter() {
+  fun start(): String {
+    val binaryString = UserInputHandler().getUserStringInput("Enter a binary string: ")
     return binaryString
   }
 }
