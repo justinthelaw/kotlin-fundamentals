@@ -1,3 +1,5 @@
+import java.lang.Exception
+
 /*
  AUTHOR: Justin Law
  CLASS: EN.605.204.81
@@ -50,21 +52,20 @@ fun main(args: Array<String>) {
   val func: () -> Unit = { println("Executing " + choiceMap[userChoice] + "...") }
 
   // execute the user's chosen function
+  var result = ""
   when (userChoice) {
     "1" -> {
       func()
-      val result = CaseConverter().start()
-      println("Result: $result")
+      result = CaseConverter().start()
     }
 
     "2" -> {
       func()
-      val result = BinaryToHexConverter().start()
-      println("Result: $result")
+      result = BinaryToHexConverter().start()
     }
-
     else -> println("You chose to exit the program.")
   }
+  if (result.isNotBlank()) println("\nResult: $result")
 
   println("\nThank you for using Justin's Binary Representation Function Library. Goodbye!")
 

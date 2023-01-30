@@ -6,5 +6,5 @@
 // handles thrown exceptions
 fun handleError(context: String, e: Exception) {
   println("$context: $e")
-  print("${e.stackTrace}")
+  println("${e.stackTrace}")
 }
