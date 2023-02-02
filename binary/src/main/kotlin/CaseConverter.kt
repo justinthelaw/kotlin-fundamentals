@@ -56,7 +56,7 @@ class CaseConverter() {
 
   /*
     converts string characters to lower case form using the following:
-    - the 0b1011111 constant
+    - the 0b100000 constant
     - the "OR" bitwise operator
   */
   private fun toLowerCase(string: String): String {
