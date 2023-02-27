@@ -39,7 +39,7 @@ class AgeCalculationTests() {
   }
 
   @Test
-  fun testForException() {
+  fun testForImpossibleBirthday() {
     val date = Calendar.getInstance()
     date.add(Calendar.DAY_OF_YEAR, 1)
 
